@@ -1,0 +1,234 @@
+<div class="app">
+  <header class="header">
+    <nav class="nav">
+      <div class="nav-container">
+        <div class="logo">
+          <span class="emoji">🌶️</span>
+          <span class="name">BahlilUI</span>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#features" class="nav-link">Features</a></li>
+          <li><a href="#quickstart" class="nav-link">Quick Start</a></li>
+          <li><a href="#examples" class="nav-link">Examples</a></li>
+          <li><a href="#docs" class="nav-link">Docs</a></li>
+          <li><a href="https://github.com/bahlilui/bahlilui" target="_blank" class="nav-link">GitHub</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="hero">
+      <div class="hero-container">
+        <h1>{{hero_title}}</h1>
+        <p>{{hero_description}}</p>
+        <div class="hero-buttons">
+          <button class="btn btn-primary" onclick="scrollToSection('quickstart')">Get Started</button>
+          <a href="https://github.com/bahlilui/bahlilui" target="_blank" class="btn btn-secondary">View on GitHub</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <section id="features" class="section features">
+      <div class="container">
+        <h2>✨ What is BahlilUI?</h2>
+        <p class="section-intro">{{features_intro}}</p>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">📝</div>
+            <h3>Templates</h3>
+            <p>.bui files (HTML + {{placeholders}})</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🎨</div>
+            <h3>Styles</h3>
+            <p>Plain .css files</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🦀</div>
+            <h3>Logic</h3>
+            <p>Rust structs + simple replacement renderer</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📦</div>
+            <h3>Output</h3>
+            <p>Single .wasm bundle</p>
+          </div>
+        </div>
+
+        <div class="quote">
+          <p>"Think: 'keep it simple, ship it fast' — no virtual DOM, no mega build system, just Rust + WASM."</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section features-list">
+      <div class="container">
+        <h2>✅ Features</h2>
+        <div class="features-list-grid">
+          <div class="feature-item">
+            <span class="feature-emoji">⚡</span>
+            <div>
+              <strong>Fast startup</strong>
+              <p>Minimal runtime overhead</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <span class="feature-emoji">🔒</span>
+            <div>
+              <strong>Type-safe state</strong>
+              <p>App data is Rust structs</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <span class="feature-emoji">📦</span>
+            <div>
+              <strong>Single bundle</strong>
+              <p>.bui + .css embedded into .wasm via include_str!</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <span class="feature-emoji">♻️</span>
+            <div>
+              <strong>Hot reload dev server</strong>
+              <p>Watches .rs, .bui, .css and reloads browser</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <span class="feature-emoji">🧩</span>
+            <div>
+              <strong>Minimal mental model</strong>
+              <p>String template rendering + DOM injection</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="quickstart" class="section quickstart">
+      <div class="container">
+        <h2>🚀 Quick Start</h2>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3>Install BahlilUI CLI</h3>
+              <pre><code>cargo install --path .</code></pre>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3>Create a new project</h3>
+              <pre><code>bui new my_app
+cd my_app</code></pre>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3>Run the development server</h3>
+              <pre><code>bui dev</code></pre>
+              <p>Then open <a href="http://127.0.0.1:8080">http://127.0.0.1:8080</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="examples" class="section examples">
+      <div class="container">
+        <h2>📁 Project Structure</h2>
+        <p>{{project_structure_intro}}</p>
+
+        <div class="code-example">
+          <pre><code>{{project_structure}}</code></pre>
+        </div>
+
+        <div class="example-files">
+          <div class="file-example">
+            <h3>contents/view.bui</h3>
+            <pre><code>{{view_bui_example}}</code></pre>
+          </div>
+
+          <div class="file-example">
+            <h3>contents/style.css</h3>
+            <pre><code>{{style_css_example}}</code></pre>
+          </div>
+
+          <div class="file-example">
+            <h3>src/lib.rs</h3>
+            <pre><code>{{lib_rs_example}}</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="docs" class="section docs">
+      <div class="container">
+        <h2>🧩 The .bui Template Format</h2>
+        <p>.bui is <strong>HTML with Superpowers</strong>:</p>
+
+        <div class="code-example">
+          <pre><code>{{template_example}}</code></pre>
+        </div>
+
+        <p>{{template_description}}</p>
+
+        <h3>Notes & Conventions</h3>
+        <ul>
+          <li>Placeholders are wrapped with <code>{{ }}</code></li>
+          <li>Replacement is a simple string substitution</li>
+          <li>For production use, consider escaping HTML and validating placeholders</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section roadmap">
+      <div class="container">
+        <h2>🗺️ Roadmap</h2>
+        <p>{{roadmap_intro}}</p>
+
+        <div class="roadmap-items">
+          <div class="roadmap-item">
+            <h4>Template Engine</h4>
+            <p>Loops, conditionals + safe escaping</p>
+          </div>
+          <div class="roadmap-item">
+            <h4>Event Binding</h4>
+            <p>on:click="{{handler}}" mapping to Rust functions</p>
+          </div>
+          <div class="roadmap-item">
+            <h4>Component System</h4>
+            <p>Nested templates + scoped CSS</p>
+          </div>
+          <div class="roadmap-item">
+            <h4>State Updates</h4>
+            <p>Partial re-render / targeted DOM updates</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <span class="emoji">🌶️</span>
+          <span class="name">BahlilUI</span>
+        </div>
+        <p>{{footer_text}}</p>
+        <p class="tagline">"Simple UI, spicy name."</p>
+        <div class="footer-links">
+          <a href="https://github.com/bahlilui/bahlilui" target="_blank">GitHub</a>
+          <a href="https://github.com/bahlilui/bahlilui/blob/main/LICENSE" target="_blank">License</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>

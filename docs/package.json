@@ -1,0 +1,11 @@
+{
+  "name": "bahlilui-docs",
+  "version": "1.0.0",
+  "description": "BahlilUI Documentation Site",
+  "scripts": {
+    "build": "wasm-pack build --target web --out-dir pkg --out-name bahlilui_docs",
+    "dev": "wasm-pack build --target web --out-dir pkg --out-name bahlilui_docs && python3 -m http.server 8000",
+    "serve": "python3 -m http.server 8000"
+  },
+  "devDependencies": {}
+}
