@@ -18,6 +18,14 @@
         }).catch((error) => {
             console.error('❌ Failed to load BahlilUI Docs:', error);
         });
+
+        const socket = new WebSocket("ws://" + window.location.host + "/ws");
+        socket.onmessage = (event) => {
+            if (event.data === "reload") {
+                console.log("♻️ Change detected. Reloading...");
+                window.location.reload();
+            }
+        };
     </script>
 </body>
 </html>

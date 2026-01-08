@@ -228,6 +228,7 @@ async fn watch_files(clients: Clients) {
     let mut watcher = RecommendedWatcher::new(tx, Config::default()).unwrap();
     watcher.watch(Path::new("src"), RecursiveMode::Recursive).unwrap();
     watcher.watch(Path::new("contents"), RecursiveMode::Recursive).unwrap();
+    watcher.watch(Path::new("index.html"), RecursiveMode::NonRecursive).unwrap();
 
     for res in rx {
         match res {

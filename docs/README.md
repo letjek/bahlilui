@@ -29,9 +29,9 @@ The documentation site is a BahlilUI application that showcases the framework's 
 
 3. **Serve locally** (optional):
    ```bash
+   npm run dev
+   # or if you only want static hosting without rebuilds:
    npm run serve
-   # or:
-   python3 -m http.server 8000
    ```
    Then open `http://localhost:8000`
 
@@ -40,9 +40,11 @@ The documentation site is a BahlilUI application that showcases the framework's 
 The built `pkg/` directory contains the WebAssembly files and should be committed to the repository for deployment.
 
 For Vercel deployment:
-1. Push the code (including the `pkg/` directory) to your repository
-2. Connect the repository to Vercel
-3. Vercel will automatically serve the static files
+1. Run `wasm-pack build --target web --out-dir pkg --out-name bahlilui_docs`
+2. Commit the generated `pkg/` directory
+3. Push the code (including `pkg/`) to your repository
+4. Connect the repository to Vercel
+5. Vercel will run `npm run build`, which checks for `pkg/` and skips rebuilding
 
 ## Project Structure
 

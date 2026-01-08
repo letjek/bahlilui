@@ -4,7 +4,7 @@
   "description": "BahlilUI Documentation Site",
   "scripts": {
     "build": "wasm-pack build --target web --out-dir pkg --out-name bahlilui_docs",
-    "dev": "wasm-pack build --target web --out-dir pkg --out-name bahlilui_docs && python3 -m http.server 8000",
+    "dev": "cargo run --bin dev_server",
     "serve": "python3 -m http.server 8000"
   },
   "devDependencies": {}

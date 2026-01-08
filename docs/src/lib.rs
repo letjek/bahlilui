@@ -59,7 +59,8 @@ impl DocsApp {
 }
 
 h1 { color: #dea584; }"#.to_string(),
-            lib_rs_example: r#"use wasm_bindgen::prelude::*;
+            lib_rs_example: r#"
+use wasm_bindgen::prelude::*;
 use web_sys::window;
 
 const HTML_TEMPLATE: &str = include_str!("../contents/view.bui");
