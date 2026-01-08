@@ -11,7 +11,7 @@
           <li><a href="#quickstart" class="nav-link">Quick Start</a></li>
           <li><a href="#examples" class="nav-link">Examples</a></li>
           <li><a href="#docs" class="nav-link">Docs</a></li>
-          <li><a href="https://github.com/bahlilui/bahlilui" target="_blank" class="nav-link">GitHub</a></li>
+          <li><a href="https://github.com/letjek/bahlilui" target="_blank" class="nav-link">GitHub</a></li>
         </ul>
       </div>
     </nav>
@@ -22,7 +22,7 @@
         <p>{{hero_description}}</p>
         <div class="hero-buttons">
           <button class="btn btn-primary" onclick="scrollToSection('quickstart')">Get Started</button>
-          <a href="https://github.com/bahlilui/bahlilui" target="_blank" class="btn btn-secondary">View on GitHub</a>
+          <a href="https://github.com/letjek/bahlilui" target="_blank" class="btn btn-secondary">View on GitHub</a>
         </div>
       </div>
     </div>
@@ -225,8 +225,8 @@ cd my_app</code></pre>
         <p>{{footer_text}}</p>
         <p class="tagline">"Simple UI, spicy name."</p>
         <div class="footer-links">
-          <a href="https://github.com/bahlilui/bahlilui" target="_blank">GitHub</a>
-          <a href="https://github.com/bahlilui/bahlilui/blob/main/LICENSE" target="_blank">License</a>
+          <a href="https://github.com/letjek/bahlilui" target="_blank">GitHub</a>
+          <a href="https://github.com/letjek/bahlilui/blob/main/LICENSE" target="_blank">License</a>
         </div>
       </div>
     </div>
