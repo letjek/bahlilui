@@ -1,5 +1,5 @@
-use wasm_bindgen::prelude::*;
-use web_sys::{window, Element, EventTarget, HtmlElement, MouseEvent};
+use wasm_bindgen::{prelude::*, JsCast};
+use web_sys::window;
 
 const HTML_TEMPLATE: &str = include_str!("../contents/view.bui");
 const CSS_STYLES: &str = include_str!("../contents/style.css");
@@ -168,18 +168,20 @@ fn setup_navigation() -> Result<(), JsValue> {
     let nav_links = document.query_selector_all(".nav-link")?;
 
     for i in 0..nav_links.length() {
-        if let Ok(link) = nav_links.get(i) {
-            let link_clone = link.clone();
-            let closure = Closure::wrap(Box::new(move |_event: web_sys::Event| {
-                if let Ok(href) = link_clone.get_attribute("href") {
-                    if href.starts_with("#") {
-                        scroll_to_section(&href[1..]);
+        if let Some(node) = nav_links.get(i) {
+            if let Ok(link) = node.dyn_into::<web_sys::Element>() {
+                let link_clone = link.clone();
+                let closure = Closure::wrap(Box::new(move |_event: web_sys::Event| {
+                    if let Some(href) = link_clone.get_attribute("href") {
+                        if href.starts_with('#') {
+                            scroll_to_section(&href[1..]);
+                        }
                     }
-                }
-            }) as Box<dyn FnMut(_)>);
+                }) as Box<dyn FnMut(_)>);
 
-            link.add_event_listener_with_callback("click", closure.as_ref().unchecked_ref())?;
-            closure.forget();
+                link.add_event_listener_with_callback("click", closure.as_ref().unchecked_ref())?;
+                closure.forget();
+            }
         }
     }
 
@@ -190,7 +192,7 @@ fn setup_navigation() -> Result<(), JsValue> {
 pub fn scroll_to_section(section_id: &str) {
     if let Some(window) = window() {
         if let Some(document) = window.document() {
-            if let Ok(element) = document.get_element_by_id(section_id) {
+            if let Some(element) = document.get_element_by_id(section_id) {
                 element.scroll_into_view();
             }
         }

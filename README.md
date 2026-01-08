@@ -65,7 +65,7 @@ wasm-pack build --target web --out-dir pkg --out-name bahlilui_docs
 
 ---
 
-## �️ CLI Usage
+## 🛠️ CLI Usage
 
 BahlilUI comes with a CLI tool to help you create and manage projects.
 
@@ -254,6 +254,8 @@ wasm-pack build --target web
 ```
 
 This creates the `pkg/` folder used by `index.html`.
+If you add DOM APIs like `query_selector_all`, ensure the corresponding `web-sys` features
+(e.g. `NodeList`) are enabled in `Cargo.toml`.
 
 ### Run the dev server (hot reload)
 

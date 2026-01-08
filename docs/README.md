@@ -25,6 +25,7 @@ The documentation site is a BahlilUI application that showcases the framework's 
    # or directly:
    wasm-pack build --target web --out-dir pkg --out-name bahlilui_docs
    ```
+   Note: if you add DOM APIs like `query_selector_all`, make sure the relevant `web-sys` features (e.g. `NodeList`) are enabled in `docs/Cargo.toml`.
 
 3. **Serve locally** (optional):
    ```bash

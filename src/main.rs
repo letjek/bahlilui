@@ -71,7 +71,7 @@ path = "src/bin/dev_server.rs"
 
 [dependencies]
 wasm-bindgen = "0.2"
-web-sys = {{ version = "0.3", features = ["Document", "Element", "HtmlElement", "Node", "Window", "HtmlStyleElement", "HtmlHeadElement"] }}
+web-sys = {{ version = "0.3", features = ["Document", "Element", "HtmlElement", "Node", "NodeList", "Window", "HtmlStyleElement", "HtmlHeadElement"] }}
 warp = "0.3"
 tokio = {{ version = "1", features = ["full"] }}
 notify = "6.1"
@@ -304,7 +304,7 @@ async fn run_dev_server() -> anyhow::Result<()> {
     // First, build once
     println!("🔨 Initial build...");
     let status = Command::new("wasm-pack")
-        .args(&["build", "--target", "web"])
+        .args(["build", "--target", "web"])
         .status()?;
     if !status.success() {
         anyhow::bail!("Initial build failed");
@@ -313,7 +313,7 @@ async fn run_dev_server() -> anyhow::Result<()> {
     // Then run the dev server
     println!("🚀 Starting dev server...");
     Command::new("cargo")
-        .args(&["run", "--bin", "dev_server"])
+        .args(["run", "--bin", "dev_server"])
         .status()?;
 
     Ok(())
@@ -322,7 +322,7 @@ async fn run_dev_server() -> anyhow::Result<()> {
 fn build_project() -> anyhow::Result<()> {
     println!("🔨 Building for production...");
     let status = Command::new("wasm-pack")
-        .args(&["build", "--target", "web", "--release"])
+        .args(["build", "--target", "web", "--release"])
         .status()?;
     if status.success() {
         println!("✅ Build successful");
