@@ -29,6 +29,109 @@
   </header>
 
   <main class="main">
+    <!-- Fuel Blend Showcase Section -->
+    <section class="section fuel-blend">
+      <div class="container">
+        <h2 class="hover-reveal-title">⚡ Powered by <span class="secret-text" title="klik untuk membuka rahasia...">████████</span></h2>
+        <p class="section-intro">Kombinasi elegan yang <span class="meme-trigger">sangat powerful</span> — Rust + CSS + .bui dalam desain modern</p>
+        
+        <div class="blend-showcase">
+          <div class="blend-card">
+            <div class="blend-header">
+              <h3 class="secret-title">Composition <span class="redacted">██████</span></h3>
+            </div>
+            
+            <div class="blend-composition">
+              <div class="blend-item">
+                <div class="blend-label">
+                  <span class="fuel-swatch gasoline"></span>
+                  <span class="fuel-name" data-real="Rust Logic + CSS Styling + .bui Templates + etanol = 🔥">🦀 Rust Power</span>
+                </div>
+                <div class="blend-meter" data-percent="45">
+                  <div class="meter-track">
+                    <div class="meter-fill gasoline-fill" style="--percent: 45%"></div>
+                  </div>
+                  <span class="percent-text">45%</span>
+                </div>
+              </div>
+              
+              <div class="blend-item">
+                <div class="blend-label">
+                  <span class="fuel-swatch ethanol"></span>
+                  <span class="fuel-name" data-real="CSS Styling (Plain & Simple)">🎨 Style Magic</span>
+                </div>
+                <div class="blend-meter" data-percent="20">
+                  <div class="meter-track">
+                    <div class="meter-fill ethanol-fill" style="--percent: 20%"></div>
+                  </div>
+                  <span class="percent-text">20%</span>
+                </div>
+              </div>
+              
+              <div class="blend-item">
+                <div class="blend-label">
+                  <span class="fuel-swatch sawit"></span>
+                  <span class="fuel-name" data-real="LPG 3KG + .bui Templates (HTML++)">📝 Template Power</span>
+                </div>
+                <div class="blend-meter" data-percent="25">
+                  <div class="meter-track">
+                    <div class="meter-fill sawit-fill" style="--percent: 25%"></div>
+                  </div>
+                  <span class="percent-text">25%</span>
+                </div>
+              </div>
+              
+              <div class="blend-item">
+                <div class="blend-label">
+                  <span class="fuel-swatch lpg"></span>
+                  <span class="fuel-name" data-real="WASM Bundle (Single Output)">📦 WASM Magic</span>
+                </div>
+                <div class="blend-meter" data-percent="10">
+                  <div class="meter-track">
+                    <div class="meter-fill lpg-fill" style="--percent: 10%"></div>
+                  </div>
+                  <span class="percent-text">10%</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="blend-footer">
+              <div class="blend-stat">
+                <span class="stat-value">100%</span>
+                <span class="stat-label">Total Blend</span>
+              </div>
+              <div class="blend-stat">
+                <span class="stat-value">4</span>
+                <span class="stat-label">Components</span>
+              </div>
+              <div class="blend-stat">
+                <span class="stat-value">⭐</span>
+                <span class="stat-label">Premium</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="blend-benefits">
+            <div class="benefit-item easter-egg" data-meme="Rust go brrrr 🦀 zero-cost abstractions ftw">
+              <div class="benefit-icon gasoline-themed">🔥</div>
+              <h4>Type-Safe Logic</h4>
+              <p>Tenaga maksimal dari <span class="secret-word">████████</span> berkualitas</p>
+            </div>
+            <div class="benefit-item easter-egg" data-meme="plain CSS = no build system pain = stonks 📈">
+              <div class="benefit-icon ethanol-themed">♻️</div>
+              <h4>Simple Styling</h4>
+              <p>CSS murni tanpa pre-processor overhead</p>
+            </div>
+            <div class="benefit-item easter-egg" data-meme="single .wasm bundle = deploy go brrr 💨">
+              <div class="benefit-icon lpg-themed">💨</div>
+              <h4>Single Bundle</h4>
+              <p>Compile sekali jadi WASM siap deploy</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="features" class="section features">
       <div class="container">
         <h2>✨ What is BahlilUI?</h2>

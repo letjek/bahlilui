@@ -11,8 +11,8 @@ export interface InitOutput {
   readonly memory: WebAssembly.Memory;
   readonly run: () => void;
   readonly scroll_to_section: (a: number, b: number) => void;
-  readonly wasm_bindgen__convert__closures_____invoke__h93308fc99317cfbd: (a: number, b: number, c: any) => void;
-  readonly wasm_bindgen__closure__destroy__hd9a857b50b31e730: (a: number, b: number) => void;
+  readonly wasm_bindgen__convert__closures_____invoke__hc061ed5e870b29ef: (a: number, b: number, c: any) => void;
+  readonly wasm_bindgen__closure__destroy__hcb86a3169b275682: (a: number, b: number) => void;
   readonly __wbindgen_exn_store: (a: number) => void;
   readonly __externref_table_alloc: () => number;
   readonly __wbindgen_externrefs: WebAssembly.Table;
