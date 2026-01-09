@@ -7,7 +7,7 @@ Write UI logic in **Rust**, keep styling in **CSS**, and author templates in **`
 
 ![BahlilUI](https://img.shields.io/badge/BahlilUI-Rust%20WASM-dea584?style=for-the-badge&logo=rust&logoColor=black)
 
-📚 **[Read the Docs](https://bahlilui.vercel.app)** (Built with BahlilUI!)
+📚 **[Read the Docs](https://bahlilui.dev)** (Built with BahlilUI!)
 
 ---
 
@@ -56,7 +56,7 @@ cargo install --path .
 
 ## 🌐 Documentation Site
 
-The [BahlilUI documentation site](https://bahlilui.vercel.app) is itself built using BahlilUI! This demonstrates the framework's capabilities in a real-world application.
+The [BahlilUI documentation site](https://bahlilui.dev) is itself built using BahlilUI! This demonstrates the framework's capabilities in a real-world application.
 
 To build the docs locally:
 ```bash
