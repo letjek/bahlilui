@@ -23,7 +23,7 @@ impl DocsApp {
     fn new() -> Self {
         Self {
             hero_title: "The \"No-Nonsense\" Rust → WebAssembly UI Framework".to_string(),
-            hero_description: "Write UI logic in Rust, keep styling in CSS, and author templates in .bui (HTML with placeholders). Compile everything into a single .wasm bundle.".to_string(),
+            hero_description: "Write UI logic in Rust, keep styling in CSS, and author templates in .bui (HTML with superpowers). Compile everything into a single .wasm bundle.".to_string(),
             features_intro: "BahlilUI is a tiny, compile-time friendly UI approach that keeps things simple and fast.".to_string(),
             project_structure_intro: "A typical BahlilUI project looks like this:".to_string(),
             project_structure: r#".
