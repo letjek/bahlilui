@@ -3,7 +3,7 @@
     <nav class="nav">
       <div class="nav-container">
         <div class="logo">
-          <span class="emoji">🌶️</span>
+          <img class="logo-img" src="bahlilui.png" alt="BahlilUI logo">
           <span class="name">BahlilUI</span>
         </div>
         <ul class="nav-links">
@@ -219,7 +219,7 @@ cd my_app</code></pre>
     <div class="container">
       <div class="footer-content">
         <div class="footer-logo">
-          <span class="emoji">🌶️</span>
+          <img class="logo-img" src="bahlilui.png" alt="BahlilUI logo">
           <span class="name">BahlilUI</span>
         </div>
         <p>{{footer_text}}</p>

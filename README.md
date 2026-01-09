@@ -1,5 +1,7 @@
 # 🌶️ BahlilUI
 
+![BahlilUI Logo](bahlilui.png)
+
 **The "No‑Nonsense" Rust → WebAssembly UI framework.**  
 Write UI logic in **Rust**, keep styling in **CSS**, and author templates in **`.bui`** (HTML with superpowers). Compile everything into a **single `.wasm`** bundle.
 
