@@ -3,7 +3,7 @@ use std::convert::Infallible;
 use std::path::Path;
 use std::sync::Arc;
 
-use futures_util::StreamExt;
+use futures_util::{SinkExt, StreamExt};
 use notify::{Config, RecommendedWatcher, RecursiveMode, Watcher};
 use tokio::sync::RwLock;
 use uuid::Uuid;
@@ -48,14 +48,19 @@ async fn ws_handler(ws: warp::ws::Ws, clients: Clients) -> Result<impl Reply, Re
 }
 
 async fn handle_socket(socket: warp::ws::WebSocket, clients: Clients) {
-    let (tx, mut rx) = socket.split();
+    let (mut tx, mut rx) = socket.split();
     let (client_tx, client_rx) = tokio::sync::mpsc::unbounded_channel();
 
     let client_id = Uuid::new_v4().to_string();
     clients.write().await.insert(client_id.clone(), client_tx);
 
     tokio::spawn(async move {
-        tokio::io::copy(client_rx, tx).await.unwrap();
+        let mut client_rx = client_rx;
+        while let Some(message) = client_rx.recv().await {
+            if tx.send(message).await.is_err() {
+                break;
+            }
+        }
     });
 
     while let Some(_) = rx.next().await {

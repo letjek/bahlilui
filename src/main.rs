@@ -57,8 +57,8 @@ fn create_new_project(name: &str) -> anyhow::Result<()> {
     fs::create_dir_all(project_dir.join("src/bin"))?;
 
     // Cargo.toml
-    let cargo_toml = format!(r#"[package]
-name = "{}"
+    let cargo_toml = r#"[package]
+name = "__PROJECT_NAME__"
 version = "0.1.0"
 edition = "2021"
 
@@ -71,13 +71,16 @@ path = "src/bin/dev_server.rs"
 
 [dependencies]
 wasm-bindgen = "0.2"
-web-sys = {{ version = "0.3", features = ["Document", "Element", "HtmlElement", "Node", "NodeList", "Window", "HtmlStyleElement", "HtmlHeadElement"] }}
+web-sys = { version = "0.3", features = ["Document", "Element", "HtmlElement", "Node", "NodeList", "Window", "HtmlStyleElement", "HtmlHeadElement"] }
+
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
 warp = "0.3"
-tokio = {{ version = "1", features = ["full"] }}
+tokio = { version = "1", features = ["full"] }
 notify = "6.1"
 futures-util = "0.3"
-"#, name);
-    fs::write(project_dir.join("Cargo.toml"), cargo_toml)?;
+uuid = { version = "1", features = ["v4"] }
+"#.replace("__PROJECT_NAME__", name);
+   fs::write(project_dir.join("Cargo.toml"), cargo_toml)?;
 
     // contents/view.bui
     let view_bui = r#"<div class="card">
@@ -162,7 +165,7 @@ use std::sync::Arc;
 use tokio::sync::RwLock;
 use warp::ws::Message;
 use warp::{Filter, Rejection, Reply};
-use futures_util::StreamExt;
+use futures_util::{SinkExt, StreamExt};
 use uuid::Uuid;
 
 type Clients = Arc<RwLock<HashMap<String, tokio::sync::mpsc::UnboundedSender<Message>>>>;
@@ -203,14 +206,19 @@ async fn ws_handler(ws: warp::ws::Ws, clients: Clients) -> Result<impl Reply, Re
 }
 
 async fn handle_socket(socket: warp::ws::WebSocket, clients: Clients) {
-    let (tx, mut rx) = socket.split();
+    let (mut tx, mut rx) = socket.split();
     let (client_tx, client_rx) = tokio::sync::mpsc::unbounded_channel();
 
     let client_id = Uuid::new_v4().to_string();
     clients.write().await.insert(client_id.clone(), client_tx);
 
     tokio::spawn(async move {
-        tokio::io::copy(client_rx, tx).await.unwrap();
+        let mut client_rx = client_rx;
+        while let Some(message) = client_rx.recv().await {
+            if tx.send(message).await.is_err() {
+                break;
+            }
+        }
     });
 
     while let Some(_) = rx.next().await {
