@@ -4,6 +4,7 @@ Cargo.lock
 
 # WebAssembly
 pkg/
+!docs/pkg/
 dist/
 
 # IDEs

@@ -1,0 +1,15 @@
+{
+  "name": "bahlilui-docs",
+  "type": "module",
+  "version": "0.1.0",
+  "files": [
+    "bahlilui_docs_bg.wasm",
+    "bahlilui_docs.js",
+    "bahlilui_docs.d.ts"
+  ],
+  "main": "bahlilui_docs.js",
+  "types": "bahlilui_docs.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
